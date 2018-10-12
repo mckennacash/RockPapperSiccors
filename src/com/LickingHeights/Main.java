@@ -36,14 +36,19 @@ public class Main {
             do {
                 idx = new Random().nextInt(variables.length);
                 random = (variables[idx]);
+
+                System.out.println("//////////////////////////"+"Round 1: "+"//////////////////////////\n\n\n");
                 System.out.println("rock, paper, scissors?");
                 userMove = keyboard.nextLine();
+                System.out.println("Player picked: "+ userMove);
+                System.out.println("Computer picked: "+ random);
 
                 if(userMove.equalsIgnoreCase(random)){
                     System.out.println("It was a tie");
                 }
                 else{
                     switch(userMove){
+
                         case "rock":
                             if(random.equalsIgnoreCase("scissors")){
                                 System.out.println("Player wins");
@@ -53,15 +58,17 @@ public class Main {
                                 System.out.println("Computer Wins");
                                 computerPoints++;
                             }
+                            break;
                         case "paper":
                             if(random.equalsIgnoreCase("rock")) {
+                                System.out.println("Player wins");
                                 points++;
                             }
                             else {
                                 System.out.println("Computer wins");
                                 computerPoints++;
                             }
-
+                            break;
                         case "scissors":
                             if(random.equalsIgnoreCase("paper")){
                                 System.out.println("Player wins");
@@ -71,6 +78,7 @@ public class Main {
                                 System.out.println("Computer wins");
                                 computerPoints++;
                             }
+                            break;
                     }
 
                 }
