@@ -10,17 +10,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner keyboard;
         boolean game = false;
-        int randomNumber;
         String userMove;
         String userAnswer;
-        String rock;
-        String paper;
-        String scissors;
-        String computer;
         keyboard = new Scanner(System.in);
         int points = 0;
         int computerPoints = 0;
-
         //setting up computer choice
         String[] variables = {"rock","paper","scissors"};
         int idx = new Random().nextInt(variables.length);
@@ -32,50 +26,51 @@ public class Main {
         do {
             points = 0;
             computerPoints = 0;
+            int levelNumber = 0;
 
             do {
                 idx = new Random().nextInt(variables.length);
                 random = (variables[idx]);
-
-                System.out.println("//////////////////////////"+"Round 1: "+"//////////////////////////\n\n\n");
+                levelNumber++;
+                System.out.println("\n\n\n//////////////////////////"+"Round "+ levelNumber + "//////////////////////////\n\n\n");
                 System.out.println("rock, paper, scissors?");
                 userMove = keyboard.nextLine();
-                System.out.println("Player picked: "+ userMove);
-                System.out.println("Computer picked: "+ random);
+                System.out.println("Player picked: "+ userMove+"\n");
+                System.out.println("Computer picked: "+ random+"\n");
 
                 if(userMove.equalsIgnoreCase(random)){
-                    System.out.println("It was a tie");
+                    System.out.println("It was a tie\n");
                 }
                 else{
                     switch(userMove){
 
                         case "rock":
                             if(random.equalsIgnoreCase("scissors")){
-                                System.out.println("Player wins");
+                                System.out.println("Player wins\n");
                                 points++;
                             }
                             else{
-                                System.out.println("Computer Wins");
+                                System.out.println("Computer Wins\n");
                                 computerPoints++;
                             }
                             break;
                         case "paper":
                             if(random.equalsIgnoreCase("rock")) {
-                                System.out.println("Player wins");
+                                System.out.println("Player wins\n");
                                 points++;
                             }
                             else {
-                                System.out.println("Computer wins");
+                                System.out.println("Computer wins\n");
                                 computerPoints++;
                             }
                             break;
                         case "scissors":
                             if(random.equalsIgnoreCase("paper")){
-                                System.out.println("Player wins");
+                                System.out.println("Player wins\n");
                                 points++;
                             }
                             else {
-                                System.out.println("Computer wins");
+                                System.out.println("Computer wins\n");
                                 computerPoints++;
                             }
                             break;
@@ -84,10 +79,10 @@ public class Main {
                 }
 
 
+                System.out.println("Computer has "+computerPoints+" Player has "+points);
 
 
-
-            } while (points <= 6 && computerPoints<=6);
+            } while (points < 6 && computerPoints< 6);
 
             System.out.println("Want to play again?");
 
